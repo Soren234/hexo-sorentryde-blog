@@ -9,13 +9,24 @@ body
   color: #545E6C;
   background: #f0f0f0;
   font-size: 14px;
-  padding: 30px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
 @media (max-width: 767px) {
   body{
     padding: 0;
+  }
+  .main-wrapper {
+    padding: 30px 30px 30px 30px;
+  }
+}
+
+@media (min-width: 767px) {
+  body{
+    padding: 30px;
+  }
+  .main-wrapper {
+    padding: 50px 50px 50px 50px;
   }
 }
 h1,
@@ -56,7 +67,6 @@ p {
 
 .main-wrapper {
   background: #fff;
-  padding: 60px 60px 60px 60px;
 }
 .main-wrapper .section-title {
   text-transform: uppercase;

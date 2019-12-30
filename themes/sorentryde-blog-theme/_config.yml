@@ -1,3 +1,4 @@
 favicon: /favicon.png
-google_analytics: UA-114426812-1
+#UA-114426812-1
+google_analytics:
 fancybox: true
