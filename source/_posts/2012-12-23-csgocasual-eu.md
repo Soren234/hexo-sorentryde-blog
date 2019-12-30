@@ -6,7 +6,7 @@ author: Soren Tryde
 tags: csgo2play
 ---
 
-![csgo2play header](/images/csgo.png)
+![Csgo2play header](/images/csgo.png)
 
 <p>I had some fun with a website project of mine, which in it’s core,
 is a server-list with it’s own voting system. The website is build
