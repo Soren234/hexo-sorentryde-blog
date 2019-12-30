@@ -9,7 +9,7 @@ tags:
     - Counter-strike
 ---
 
-![Csgo2play.net opdated.](/images/csgo_update.png)
+![Csgo2play.net updated.](/images/csgo_update.png)
 
 <p>After a long pause of posting on my blog, 
 i decided to make a post about the changes
