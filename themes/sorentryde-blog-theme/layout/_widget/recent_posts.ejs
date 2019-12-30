@@ -1,12 +1,12 @@
 <% if (site.posts.length){ %>
   <div class="education-container container-block">
-    <h3 class="container-block-title"><%= __('recent_posts') %></h3>
+    <h3 class="container-block-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         <% site.posts.sort('date', -1).limit(5).each(function(post){ %>
           <div class="item">
-              <a href="<%- url_for(post.path) %>"><%= post.title || '(no title)' %></a>
-              <div class="time"><%- date(post.date) %></div>
+              <h4 class="degree"><a href="<%- url_for(post.path) %>" style="font-weight:700"><%= post.title || '(no title)' %></a></h4>
+              <div class="meta"><%- date(post.date) %></div>
           </div>
         <% }) %>
       </ul>

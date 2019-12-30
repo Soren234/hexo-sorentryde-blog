@@ -6,12 +6,12 @@
             <div class="item">
 
                 <div class="meta">
-
                     <div class="upper-row">
-                        <span class="project-title"><a href="<%= site.data.projects[project].link %>"><%= site.data.projects[project].title %></a></span>
+                        <a href="http://<%= site.data.projects[project].link %>" class="project-title"><%= site.data.projects[project].title %></a>
                         <div class="time"><%= site.data.projects[project].time %></div>
                     </div><!--//upper-row-->
 
+                    <div class="company"><%= site.data.projects[project].link %></div>
                 </div><!--//meta-->
 
                 <% if(site.data.projects[project].tagline) { %>
