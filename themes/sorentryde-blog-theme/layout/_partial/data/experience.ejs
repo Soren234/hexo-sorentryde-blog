@@ -1,0 +1,30 @@
+<% if(site.data.experiences) { %>
+<section class="section experiences-section">
+    <h2 class="section-title"><span class="fa"><i data-feather="briefcase" stroke-width="1"></i></span>Experiences</h2>
+
+
+    <% for (var experience in site.data.experiences){ %>
+    <div class="item">
+
+        <div class="meta">
+
+            <div class="upper-row">
+                <h3 class="job-title"><%= site.data.experiences[experience].role %></h3>
+                <div class="time"><%= site.data.experiences[experience].time %></div>
+            </div><!--//upper-row-->
+
+            <div class="company"><%= site.data.experiences[experience].company %></div>
+
+        </div><!--//meta-->
+
+        <% if(site.data.experiences[experience].details) { %>
+        <div class="details">
+            <p><%- site.data.experiences[experience].details %></p>
+        </div><!--//details-->
+        <% } %>
+
+    </div><!--//item-->
+    <% } %>
+
+</section><!--//section-->
+<% } %>

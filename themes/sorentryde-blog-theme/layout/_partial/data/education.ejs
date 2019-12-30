@@ -1,0 +1,15 @@
+<% if(site.data.educations) { %>
+<div class="education-container container-block">
+
+    <h2 class="container-block-title">Education</h2>
+
+    <% for (var education in site.data.educations){ %>
+    <div class="item">
+        <h4 class="degree"><%= site.data.educations[education].degree %></h4>
+        <h5 class="meta"><%= site.data.educations[education].university %></h5>
+        <div class="time"><%= site.data.educations[education].time %></div>
+    </div><!--//item-->
+    <% } %>
+
+</div><!--//education-container-->
+<% } %>

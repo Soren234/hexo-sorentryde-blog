@@ -1,0 +1,27 @@
+<% if(site.data.projects) { %>
+    <section class="section experiences-section">
+        <h2 class="section-title"><span class="fa"><i data-feather="box" stroke-width="1"></i></span>Projects</h2>
+
+        <% for (var project in site.data.projects){ %>
+            <div class="item">
+
+                <div class="meta">
+
+                    <div class="upper-row">
+                        <span class="project-title"><a href="<%= site.data.projects[project].link %>"><%= site.data.projects[project].title %></a></span>
+                        <div class="time"><%= site.data.projects[project].time %></div>
+                    </div><!--//upper-row-->
+
+                </div><!--//meta-->
+
+                <% if(site.data.projects[project].tagline) { %>
+                    <div class="project-tagline">
+                        <p><%- site.data.projects[project].tagline %></p>
+                    </div><!--//details-->
+                <% } %>
+
+            </div><!--//item-->
+        <% } %>
+
+    </section><!--//section-->
+<% } %>
