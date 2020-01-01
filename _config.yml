@@ -97,8 +97,8 @@ pagination_dir: page
 
 # gitalk
 gitalk:
-  clientID: 7323a9f0c3a328009c16
-  clientSecret: b957ef886749759d6328eb140ea2c1cdd7e5ea26
+  clientID: Iv1.b14328ba4a775d78
+  clientSecret: 711f1eedd6104aec93d639f3f837d26569ff7467
   repo: 'hexo-sorentryde-blog'
   owner: 'Soren234'
   admin: ['Soren234']
