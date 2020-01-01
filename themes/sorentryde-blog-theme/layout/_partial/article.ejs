@@ -23,9 +23,9 @@
       <% } %>
     </div>
     <footer class="article-footer">
-      <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><%= __('share') %></a>
-      <% if (post.comments && config.disqus_shortname){ %>
-        <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comment') %></a>
+      <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><i data-feather="share-2" class="feather-16" stroke-width="2"></i> <%= __('share') %></a>
+        <% if (post.comments){ %>
+        <a href="<%- post.permalink %>#comments" class="article-comment-link"><i data-feather="message-square" class="feather-16" stroke-width="2"></i> <%= __('comment') %></a>
       <% } %>
       <%- partial('post/tag') %>
     </footer>
@@ -35,10 +35,8 @@
   <% } %>
 </article>
 
-<% if (!index && post.comments && config.disqus_shortname){ %>
+<% if (!index && post.comments){ %>
 <section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
+    <%- after_post_render() %>
 </section>
 <% } %>
