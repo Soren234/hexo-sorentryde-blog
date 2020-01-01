@@ -6,11 +6,11 @@ hexo.extend.helper.register('after_post_render', function(data) {
 		<script>
 		var gitalkConfig = ${JSON.stringify(gitalkConfig)};
         const gitalk = new Gitalk ({
-            clientID: gitalkConfig.clientID,
-            clientSecret: gitalkConfig.clientSecret,
-            repo: gitalkConfig.repo,
-            owner: gitalkConfig.owner,
-            admin: gitalkConfig.admin,
+            clientID: "7323a9f0c3a328009c16",
+            clientSecret: "b957ef886749759d6328eb140ea2c1cdd7e5ea26",
+            repo: "hexo-sorentryde-blog",
+            owner: "Soren234",
+            admin: ["Soren234"],
             id: md5(location.pathname),       // Ensure uniqueness and length less than 50
             distractionFreeMode: false   // Facebook-like distraction free mode
         });
