@@ -5,12 +5,21 @@ hexo.extend.helper.register('after_post_render', function(data) {
         var str = `
 		<script>
 		var gitalkConfig = ${JSON.stringify(gitalkConfig)};
-	    gitalkConfig.id = md5(location.pathname);
-		var gitalk = new Gitalk(gitalkConfig);
-	    gitalk.render("gitalk-container");
-	    </script>`;
+        const gitalk = new Gitalk ({
+            clientID: gitalkConfig.clientID,
+            clientSecret: gitalkConfig.clientSecret,
+            repo: gitalkConfig.repo,
+            owner: gitalkConfig.owner,
+            admin: gitalkConfig.admin,
+            id: md5(location.pathname),       // Ensure uniqueness and length less than 50
+            distractionFreeMode: false   // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container')
+        </script>`;
 
         data = data + '\n' + str;
+
+
     }
 
     return data;
