@@ -27,7 +27,7 @@ github: Soren234
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://sorenttryde.dk
+url: https://sorentryde.dk
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -101,8 +101,7 @@ gitalk:
   clientSecret: b957ef886749759d6328eb140ea2c1cdd7e5ea26
   repo: hexo-sorentryde-blog
   owner: Soren234
-  admin:
-    - Soren234
+  admin: [Soren234]
   distractionFreeMode: false
 
 # Include / Exclude file(s)
