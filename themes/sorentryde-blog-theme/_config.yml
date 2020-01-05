@@ -3,7 +3,7 @@ favicon: /favicon.png
 google_analytics:
 
 staticman: Soren234/hexo-sorentryde-blog/
-comment_history: false
+comment_history: true
 comment_enable: false
 recent_comment: 0
 comment:
