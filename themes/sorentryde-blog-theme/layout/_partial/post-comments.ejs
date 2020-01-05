@@ -1,7 +1,7 @@
 <section class="content__item">
     <div class="comment-form-wrapper" id="comment-form-wrapper">
-<!--        <form class="comment-form" method="POST"
-              action="http://blog-comment-system.herokuapp.com/v2/entry/<%- theme.staticman %>master/"
+        <form class="comment-form" method="POST"
+              action="http://blog-comment-system.herokuapp.com/v2/entry/<%- theme.staticman %>master/comments"
               id="comment-form">
             <input type="hidden" name="options[origin]" value="<%- config.url %><%- config.root %><%- post.path %>">
             <input type="hidden" name="options[parent]" value="<%- post.slug %>">
@@ -10,7 +10,7 @@
             <input type="hidden" name="fields[reply]" value="" id="comment-form-reply">
             <input type="hidden" name="fields[replyTarget]" value="" id="comment-form-reply-target">
             <span class="comment-form__input-wrapper">
-        <input autocomplete="off" spellcheck="false" class="comment-form__input" name="fields" type="text"
+        <input autocomplete="off" spellcheck="false" class="comment-form__input" name="fields[name]" type="text"
                placeholder="Name"/>
       </span>
             <span class="comment-form__input-wrapper">
@@ -18,28 +18,24 @@
                placeholder="Email"/>
       </span>
             <span class="comment-form__input-wrapper">
-        <input autocomplete="off" spellcheck="false" class="comment-form__input" name="fields[url]" type="url"
-               placeholder="Url"/>
-      </span>
-            <span class="comment-form__input-wrapper">
-      <textarea class="comment-form__input comment-form__input&#45;&#45;textarea" name="fields" placeholder="Message（Markdown）"
+      <textarea class="comment-form__input comment-form__input&#45;&#45;textarea" name="fields[message]" placeholder="Message（Markdown）"
                 id="comment-form-message"></textarea>
       </span>
             <input type="submit" class="comment-form__input comment-form__input&#45;&#45;button" id="comment-submit-button"
                    value="Submit">
             <input type="hidden" name="fields[path]" value="<%- post.path %>">
-        </form>-->
-        <form method="POST" action="http://blog-comment-system.herokuapp.com/v2/entry/<%- theme.staticman %>master/comments">
+        </form>
+<!--        <form method="POST" action="http://blog-comment-system.herokuapp.com/v2/entry/<%- theme.staticman %>master/comments">
             <input name="options[redirect]" type="hidden" value="<%- config.url %><%- config.root %><%- post.path %>">
             <input name="options[parent]" type="hidden" value="<%- post.slug %>">
-            <!-- e.g. "2016-01-02-this-is-a-post" -->
+            &lt;!&ndash; e.g. "2016-01-02-this-is-a-post" &ndash;&gt;
             <input name="options[slug]" type="hidden" value="<%- post.slug %>">
             <label><input name="fields[name]" type="text">Name</label>
             <label><input name="fields[email]" type="email">E-mail</label>
             <label><textarea name="fields[body]"></textarea>Message</label>
 
             <button type="submit">Go!</button>
-        </form>
+        </form>-->
     </div>
     <div class="comment-button" id="comment-button" style="display:none;"><a class="comment-button__link"
                                                                              href="javascript:void(0);"
@@ -103,14 +99,12 @@
         <%
             var commentArray = [];
             var slug = post.slug;
-            console.log(site.data)
             for (i in site.data) {
                 var nameArray = i.split('/');
-                var postName = nameArray[0];
-
-                if (postName == slug) {
-                    site.data[i]["fileName"] = nameArray[1];
-                    commentArray.push(site.data[i]);
+                if(nameArray[0] == "comments") {
+                    if (site.data[i]._parent == slug) {
+                        commentArray.push(site.data[i]);
+                    }
                 }
             }
         %>
@@ -123,8 +117,10 @@
                         var commentDate = new Date(comment.date);
                         comment.date = date(commentDate, 'YYYY/MM/DD');
 
-                        var commentName = comment[keyName];
-                        var commentMessage = comment[keyMessage];
+                        var commentName = comment.name;
+                        var commentMessage = comment.message;
+
+                        console.log(comment);
                     %>
                     <li class="comment__list-item">
                         <div class="comment__box" id="comment-item-<%- comment._id %>">
@@ -140,14 +136,8 @@
                                 <span class="comment__submit-date"><%- comment.date %></span>
                                 <% if(theme.comment_enable){ %>
                                     <span class="comment__reply-button"><a href="javascript:void(0);"
-                                                                           onclick="comment.replyTo('<%- commentName %>','<%- comment._id %>');return false;">回复</a></span>
+                                                                           onclick="comment.replyTo('<%- commentName %>','<%- comment._id %>');return false;">Reply</a></span>
                                 <% } %>
-                                <span class=""><a
-                                            href="https://github.com/<%- theme.staticman %>edit/master/_data/<%- comment._parent %>/<%- comment.fileName %>.json"
-                                            target="_blank">编辑</a></span>
-                                <span class=""><a
-                                            href="https://github.com/<%- theme.staticman %>delete/master/_data/<%- comment._parent %>/<%- comment.fileName %>.json"
-                                            target="_blank">删除</a></span>
                             </div>
                             <div class="comment__content">
                                 <% if (typeof comment.reply != "undefined" && comment.reply.length > 0) {
@@ -162,7 +152,7 @@
                 </ul>
             </div>
         <% }else{ %>
-            <div class="comment-empty">没有任何评论</div>
+            <div class="comment-empty">No comments yet</div>
         <% } %>
     </section>
 <% } %>
