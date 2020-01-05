@@ -6,6 +6,9 @@ staticman: Soren234/hexo-sorentryde-blog/
 comment_history: true
 comment_enable: true
 recent_comment: 0
-comment:
-  keyName: "namev2"
-  keyMessage: "messagev2"
+comment_reply: false
+
+reCaptcha:
+  enabled: true
+  siteKey: "6LcnQEwUAAAAAG4biRYcrrF0WboQEQcr19bkqNiJ"
+  secret: "ybuhqw6h1HGxQ5TmMaB5rp6PWbWKaihd6rJ6JJzlsQyVZTPmJwD7O8qW4jZ47IU0+0vvOdKOylRgIWBhQu8f1F+Ce8rUvw0UOTHXzIOIuY95HdTuG3kQzw+IodnAX+RCUB8XyBTkXmd50mHv39t7aOMLLqOsNcuo74byPkgr538="

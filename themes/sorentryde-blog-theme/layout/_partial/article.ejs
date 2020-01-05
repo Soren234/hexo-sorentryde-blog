@@ -1,4 +1,16 @@
 <article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
+    <%
+    var commentArray = [];
+    var slug = post.slug;
+    for (i in site.data) {
+        var nameArray = i.split('/');
+        if(nameArray[0] == "comments") {
+            if (site.data[i]._parent == slug) {
+                commentArray.push(site.data[i]);
+            }
+        }
+    }
+    %>
   <div class="article-inner">
     <%- partial('post/gallery') %>
     <% if (post.link || post.title){ %>
@@ -25,7 +37,7 @@
     <footer class="article-footer">
       <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><i data-feather="share-2" class="feather-16" stroke-width="2"></i> <%= __('share') %></a>
         <% if (post.comments){ %>
-        <a href="<%- post.permalink %>#comments" class="article-comment-link"><i data-feather="message-square" class="feather-16" stroke-width="2"></i> <%= __('comment') %></a>
+        <a href="<%- post.permalink %>#comments" class="article-comment-link"><i data-feather="message-square" class="feather-16" stroke-width="2"></i> <%= __('comment') %> (<%- commentArray.length %>)</a>
       <% } %>
       <%- partial('post/tag') %>
     </footer>
