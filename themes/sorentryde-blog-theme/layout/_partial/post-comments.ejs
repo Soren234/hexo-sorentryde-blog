@@ -29,13 +29,14 @@
                    value="Submit">
             <input type="hidden" name="fields[path]" value="<%- post.path %>">
         </form>-->
-        <form method="POST" action="http://blog-comment-system.herokuapp.com/v3/entry/github/<%- theme.staticman %>master/comments">
+        <form method="POST" action="http://blog-comment-system.herokuapp.com/v2/entry/<%- theme.staticman %>master/comments">
             <input name="options[redirect]" type="hidden" value="<%- config.url %><%- config.root %><%- post.path %>">
+            <input name="options[parent]" type="hidden" value="<%- post.slug %>">
             <!-- e.g. "2016-01-02-this-is-a-post" -->
             <input name="options[slug]" type="hidden" value="<%- post.slug %>">
             <label><input name="fields[name]" type="text">Name</label>
             <label><input name="fields[email]" type="email">E-mail</label>
-            <label><textarea name="fields[message]"></textarea>Message</label>
+            <label><textarea name="fields[body]"></textarea>Message</label>
 
             <button type="submit">Go!</button>
         </form>
