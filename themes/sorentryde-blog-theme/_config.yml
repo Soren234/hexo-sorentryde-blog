@@ -1,3 +1,11 @@
 favicon: /favicon.png
 #UA-114426812-1
 google_analytics:
+
+staticman: Soren234/hexo-sorentryde-blog/
+comment_history: false
+comment_enable: false
+recent_comment: 0
+comment:
+  keyName: "namev2"
+  keyMessage: "messagev2"
