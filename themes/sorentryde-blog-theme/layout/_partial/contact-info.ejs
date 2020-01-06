@@ -1,0 +1,44 @@
+<div class="contact-container container-block">
+    <h2 class="container-block-title">Contact info</h2>
+    <ul class="list-unstyled contact-list">
+        <% if(config.email) { %>
+            <li class="email"><i data-feather="mail" stroke-width="1" class="feather-20"></i><a href="mailto: <%- config.email %>"
+                                                                                                style="padding-left: 5px;"><%- config.email %></a>
+            </li>
+        <% } %>
+
+        <% if(config.phone) { %>
+            <li class="phone"><i data-feather="phone" stroke-width="1" class="feather-20"></i><a href="tel:<%- config.phone %>"
+                                                                                                 style="padding-left: 5px;"><%- config.phone %></a>
+            </li>
+        <% } %>
+
+        <% if(config.website) { %>
+            <li class="website"><i data-feather="globe" stroke-width="1" class="feather-20"></i><a href="http://<%- config.website %>"
+                                                                                                   target="_blank"
+                                                                                                   style="padding-left: 5px;"><%- config.website %></a>
+            </li>
+        <% } %>
+
+        <% if(config.website) { %>
+            <li class="linkedin"><i data-feather="linkedin" stroke-width="1" class="feather-20"></i><a
+                        href="https://linkedin.com/in/<%- config.linkedin %>" target="_blank" style="padding-left: 5px;"><%- config.linkedin %></a>
+            </li>
+        <% } %>
+
+        <% if(config.github) { %>
+            <li class="github"><i data-feather="github" stroke-width="1" class="feather-20"></i><a
+                        href="http://github.com/<%- config.github %>" target="_blank"
+                        style="padding-left: 5px;"><%- config.github %></a></li>
+        <% } %>
+
+        <% if(config.twitter) { %>
+            <li class="twitter"><i class="fa fa-twitter" style="font-size: 1.2em;"></i><a
+                        href="https://twitter.com/<%- config.twitter %>" target="_blank" style="padding-left: 5px;"><%- config.twitter %></a>
+            </li>
+        <% } %>
+
+    </ul>
+</div><!--//contact-container-->
+<%- partial('_partial/data/education') %>
+<%- partial('_widget/recent_posts') %>

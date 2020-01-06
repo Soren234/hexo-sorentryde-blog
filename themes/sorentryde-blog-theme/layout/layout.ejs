@@ -3,6 +3,16 @@
 <%- partial('_partial/head') %>
 <body>
 
+<script>
+
+        $( window ).on("load resize scroll", function() {
+            if ($(window).width() < 989) {
+                $('#contact-info').appendTo('#after-body');
+            } else {
+                $('#contact-info').appendTo('#contact-info-bar');
+            }});
+
+</script>
 <div class="wrapper">
     <div class="row no-gutters">
         <div class="col-lg-9 order-lg-1 order-2" style="background-color: white;">
@@ -10,8 +20,17 @@
             <div class="main-wrapper">
             <%- body %>
             </div>
+            <div class="sidebar-wrapper">
+                <div id="after-body"></div>
+            </div>
         </div>
-        <div class="col-lg-3 order-lg-2 order-1"><%- partial('_partial/sidebar') %></div>
+        <div class="col-lg-3 order-lg-2">
+            <div class="sidebar-wrapper">
+                <div class="order-1"><%- partial('_partial/sidebar') %></div>
+                <div id="contact-info" class="order-3"><%- partial('_partial/contact-info') %></div>
+                <div id="contact-info-bar"></div>
+            </div><!--//sidebar-wrapper-->
+        </div>
     </div>
 </div>
 <!-- After footer scripts -->
