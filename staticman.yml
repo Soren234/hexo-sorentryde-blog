@@ -7,7 +7,7 @@ comments:
   #
   # Names of the fields the form is allowed to submit. If a field that is
   # not here is part of the request, an error will be thrown.
-  allowedFields: ["name", "email", "message", "origin", "parent", "reply","replyTarget","path"]
+  allowedFields: ["name", "email", "message", "origin", "parent", "reply", "replyTarget", "path"]
 
   # When allowedOrigins is defined, only requests sent from one of the domains
   # listed will be accepted.
@@ -55,7 +55,7 @@ comments:
 
   # List of transformations to apply to any of the fields supplied. Keys are
   # the name of the field and values are possible transformation types.
-  transforms:
+  # transforms:
 
   reCaptcha:
     enabled: true
