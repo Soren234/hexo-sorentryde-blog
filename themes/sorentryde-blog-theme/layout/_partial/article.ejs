@@ -27,7 +27,7 @@
         <%- post.excerpt %>
         <% if (theme.excerpt_link){ %>
           <div class="article-more-link">
-            <a href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
+            <a href="<%- url_for(post.path) %>"><%= theme.excerpt_link %></a>
           </div>
         <% } %>
       <% } else { %>
@@ -37,7 +37,7 @@
     <footer class="article-footer">
       <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><i data-feather="share-2" class="feather-16" stroke-width="2"></i> <%= __('share') %></a>
         <% if (post.comments){ %>
-        <a href="<%- url_for(post.path) %>#comments" class="article-comment-link"><i data-feather="message-square" class="feather-16" stroke-width="2"></i> <%= __('comment') %> (<%- commentArray.length %>)</a>
+        <a href="<%- url_for(post.path) %>#article-nav" class="article-comment-link"><i data-feather="message-square" class="feather-16" stroke-width="2"></i> <%= __('comment') %> (<%- commentArray.length %>)</a>
       <% } %>
       <%- partial('post/tag') %>
     </footer>
