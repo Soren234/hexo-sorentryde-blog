@@ -16,14 +16,17 @@
 </script>
 <div class="wrapper">
     <div class="row no-gutters">
-        <div class="col-lg-9 order-lg-1 order-2" style="background-color: white;">
-            <%- partial('_partial/nav') %>
-            <div class="main-wrapper">
-            <%- body %>
+        <div class="col-lg-9 order-lg-1 order-2 grid-container">
+            <div class="before-footer">
+                <%- partial('_partial/nav') %>
+                <div class="main-wrapper">
+                <%- body %>
+                </div>
+                <div class="sidebar-wrapper">
+                    <div class="after-body"></div>
+                </div>
             </div>
-            <div class="sidebar-wrapper">
-                <div class="after-body"></div>
-            </div>
+            <%- partial('_partial/footer') %>
         </div>
         <div class="col-lg-3 order-lg-2">
             <div class="sidebar-wrapper">
@@ -34,6 +37,7 @@
             </div>
         </div>
     </div>
+
 </div>
 <!-- After footer scripts -->
 <%- partial('_partial/after-footer') %>
