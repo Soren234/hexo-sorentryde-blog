@@ -18,9 +18,8 @@
             <input type="hidden" name="options[redirect]" value="<%- config.url %><%- config.root %><%- post.path %>#comment-submitted">
             <input type="hidden" name="options[redirectError]" value="<%- config.url %><%- config.root %><%- post.path %>#comment-error">
             <input type="hidden" name="options[slug]" value="<%- post.slug %>">
-            <input type="hidden" name="options[section]" value="<%- post.path %>">
+            <input type="hidden" name="options[section]" value="<%- post.slug %>">
             <input type="hidden" name="fields[reply_to]" value="">
-            <input type="address" name="fields[botpot]" placeholder="botpot (do not fill!)" style="display:none">
             <input type="hidden" name="options[reCaptcha][siteKey]" value="<%- theme.reCaptcha.siteKey %>">
             <input type="hidden" name="options[reCaptcha][secret]" value="<%- theme.reCaptcha.secret %>">
 
