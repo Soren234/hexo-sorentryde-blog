@@ -1,15 +1,26 @@
 <section>
+    <div id="comment-submitted" class="dialog">
+        <h3>Thank you</h3>
+        <p>Your comment has been submitted and will be published once it has been approved.</p>
+    </div>
+
+    <div id="comment-error" class="dialog">
+        <h3>OOPS!</h3>
+        <p>Your comment has not been submitted. Please <a href="<%- config.url %><%- config.root %><%- post.path %>">go back</a> and try again. Thank You!</p>
+    </div>
+
     <div id="comment-form-wrapper" style="margin-top: 10px;">
         <form method="POST"
               action="http://blog-comment-system.herokuapp.com/v2/entry/<%- theme.staticman %>master/comments"
               id="comment-form">
             <input type="hidden" name="options[origin]" value="<%- config.url %><%- config.root %><%- post.path %>">
             <input type="hidden" name="options[parent]" value="<%- post.slug %>">
-            <input type="hidden" name="options[redirect]" value="<%- config.url %><%- config.root %><%- post.path %>">
-            <input type="hidden" name="options[redirectError]" value="<%- config.url %><%- config.root %><%- post.path %>">
+            <input type="hidden" name="options[redirect]" value="<%- config.url %><%- config.root %><%- post.path %>#comment-submitted">
+            <input type="hidden" name="options[redirectError]" value="<%- config.url %><%- config.root %><%- post.path %>#comment-error">
             <input type="hidden" name="options[slug]" value="<%- post.slug %>">
+            <input type="hidden" name="options[section]" value="<%- post.section %>">
             <input type="hidden" name="fields[reply]" value="" id="comment-form-reply">
-            <input type="hidden" name="fields[replyTarget]" value="" id="comment-form-reply-target">
+            <input type="hidden" name="fields[reply_to]" value="">
             <input type="hidden" name="options[reCaptcha][siteKey]" value="<%- theme.reCaptcha.siteKey %>">
             <input type="hidden" name="options[reCaptcha][secret]" value="<%- theme.reCaptcha.secret %>">
 
@@ -33,11 +44,20 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i data-feather="message-circle" class="feather-16" stroke-width="2"></i> </span>
                 </div>
-                <textarea class="form-control" placeholder="Please enter a massage (Markdown) *" name="fields[message]" rows="7" data-error="Message is required." required="required"></textarea>
+                <textarea class="form-control" placeholder="Please enter a massage (Markdown) *" name="fields[body]" rows="7" data-error="Message is required." required="required"></textarea>
             </div>
 
+            <% if(theme.notifications){ %>
+            <fieldset>
+                <div>
+                    <input type="checkbox" name="options[subscribe]" value="email">
+                    Send me an email when someone comments on this post.
+                </div>
+            </fieldset>
+            <% } %>
+
             <div class="form-group">
-                <div class="g-recaptcha" data-sitekey="<%- theme.reCaptcha.siteKey %>" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                <div class="g-recaptcha" data-sitekey="<%- theme.reCaptcha.siteKey %>" data-callback="enableBtn" data-expired-callback="disableBtn"></div>
                 <div class="help-block with-errors"></div>
             </div>
 
@@ -52,8 +72,36 @@
 
 <hr>
 
+<% if(theme.comment_enable){ %>
+<script async src='https://www.google.com/recaptcha/api.js' ></script>
+
+<script type="text/javascript">
+    document.getElementById("comment-submit-button").disabled = true;
+</script>
+
+<script type="text/javascript">
+    function enableBtn(){
+        document.getElementById("comment-submit-button").disabled = false;
+    }
+
+    function disableBtn(){
+        document.getElementById("comment-submit-button").disabled = true;
+    }
+</script>
+<% } %>
+
 <% if(theme.comment_history){ %>
     <%
+        function replyTo(parent, name) {
+            var e = document.getElementById(parent),
+                    f = document.getElementById('comment-form'),
+                    h = document.getElementById('comment-form-header');
+
+            h.innerHTML = 'Reply to ' + name;
+            e.parentNode.insertBefore(f, e.nextSibling);
+            document.getElementsByName('fields[reply_to]')[0].value=parent;
+        }
+
         var commentArray = [];
         var slug = post.slug;
         for (i in site.data) {
