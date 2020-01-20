@@ -9,7 +9,8 @@
         <p>Your comment has not been submitted. Please <a href="<%- config.url %><%- config.root %><%- post.path %>">go back</a> and try again. Thank You!</p>
     </div>
 
-    <div id="comment-form-wrapper" style="margin-top: 10px;">
+    <div id="comment-form" style="margin-top: 10px;">
+        <h1 id="comment-form-header">Say something</h1>
         <form method="POST"
               action="http://blog-comment-system.herokuapp.com/v2/entry/<%- theme.staticman %>master/comments"
               id="comment-form">
@@ -87,73 +88,16 @@
         document.getElementById("comment-submit-button").disabled = true;
     }
 </script>
-<% } %>
 
-<% if(theme.comment_history){ %>
-    <%
-        function replyTo(parent, name) {
-            var e = document.getElementById(parent),
-                    f = document.getElementById('comment-form'),
-                    h = document.getElementById('comment-form-header');
+<script>
+    function replyTo(parent, name) {
+        var e = document.getElementById(parent),
+            f = document.getElementById('comment-form'),
+            h = document.getElementById('comment-form-header');
 
-            h.innerHTML = 'Reply to ' + name;
-            e.parentNode.insertBefore(f, e.nextSibling);
-            document.getElementsByName('fields[reply_to]')[0].value=parent;
-        }
-
-        var commentArray = [];
-        var slug = post.slug;
-        for (i in site.data) {
-            var nameArray = i.split('/');
-            if(nameArray[0] == "comments") {
-                if (site.data[i]._parent == slug) {
-                    commentArray.push(site.data[i]);
-                }
-            }
-        }
-    %>
-    <% if(commentArray.length > 0){ %>
-
-    <div class="container">
-
-        <% for(var i = commentArray.length - 1;i >= 0;i--){
-
-            var comment = commentArray[i];
-            var commentDate = new Date(comment.date);
-            comment.date = date(commentDate, 'YYYY/MM/DD');
-
-            var commentName = comment.name;
-            var commentMessage = comment.message;
-        %>
-
-        <div class="row" id="comment-item-<%- comment._id %>">
-            <div class="media comment-box">
-                <div class="media-left">
-                    <a href="#">
-                        <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                    </a>
-                </div>
-                <div class="media-body">
-                    <div class="media-heading"><%- commentName %>
-                        <span style="float: right;">
-                            <span class="text-muted"><%- comment.date %></span>
-                            <% if(theme.comment_reply){ %>
-                                <strong><a href="javascript:void(0);" onclick="comment.replyTo('<%- commentName %>','<%- comment._id %>');return false;">Reply</a></strong>
-                            <% } %>
-                        </span>
-                    </div>
-                    <% if (typeof comment.reply != "undefined" && comment.reply.length > 0) {
-                        commentMessage = "[@" + comment.replyTarget + "](#comment-item-" + comment.reply + ")&nbsp;&nbsp;&nbsp;&nbsp;" + commentMessage;
-                    } %>
-                    <%- markdown(commentMessage) %>
-                    <div id="comment-item-form-wrapper-<%- comment._id %>"></div>
-                </div>
-            </div>
-        </div>
-        <% } %>
-    </div>
-
-    <% }else{ %>
-        <div class="comment-empty">No comments yet</div>
-    <% } %>
+        h.innerHTML = 'Reply to ' + name;
+        e.parentNode.insertBefore(f, e.nextSibling);
+        document.getElementsByName('fields[reply_to]')[0].value = parent;
+    }
+</script>
 <% } %>

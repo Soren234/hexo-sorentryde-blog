@@ -1,67 +1,96 @@
-{{ if isset $.Site.Data.comments .Section }}
-{{ $comments := index $.Site.Data.comments (.Section) (.File.ContentBaseName) }}
+<% if(theme.comment_history){ %>
+    <%
+        var commentArray = [];
+        var slug = post.slug;
+        for (i in site.data) {
+            var nameArray = i.split('/');
+            if (nameArray[0] == "comments") {
+                if (site.data[i]._parent == slug) {
+                    commentArray.push(site.data[i]);
+                }
+            }
+        }
+    %>
+    <% if(commentArray.length > 0){ %>
 
-{{ if $comments }}
-<h1>Comments ({{ len $comments  }})</h1>
-{{ end }}
+        <div class="container">
+            <%
+                var hasComments = 0
+            for(var i = commentArray.length - 1;i >= 0;i--){
+                hasComments++;
+                var comment = commentArray[i];
+                var commentDate = new Date(comment.date);
+                comment.date = date(commentDate, 'YYYY/MM/DD');
 
-{{ $hasComments := 0 }}
-{{ range $comments }}
-{{ $hasComments = add $hasComments 1 }}
-{{ if not .reply_to }}
-{{ $parentId := ._id }}
-{{ $parentName := .name }}
-{{ $hasReplies := 0 }}
-<div class="comment-header">
-    <figure class="frame comment-avatar">
-        <img src="https://www.gravatar.com/avatar/{{ .email }}?s=70">
-    </figure>
-    <p class="comment-info"><strong>{{ .name }}</strong><br><small>{{ dateFormat "Monday, Jan 2, 2006" .date }}</small></p>
-</div>
+                var commentName = comment.name;
+                var commentMessage = comment.body;
+                var commentEmail = comment.email;
+                console.log(comment)
+                if (comment.reply_to == "") {
+                    var parentId = comment._id;
+                    var parentName = comment.name;
+                    var hasReplies = 0;
+                %>
 
-{{ range $comments }}
-{{ if eq .reply_to $parentId }}
-{{ $hasReplies = add $hasReplies 1 }}
-{{ end }}
-{{ end }}
+                <div class="row">
+                    <div class="media comment-box">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="img-responsive user-photo"
+                                     src="https://www.gravatar.com/avatar/<%- comment.email %>?s=70">
+                            </a>
+                        </div>
+                        <% for (var i3 = commentArray.length - 1; i >= 0; i--) {
+                            var comment3 = commentArray[i3];
+                            if (comment3.reply_to == comment3.parentId) {
+                                hasReplies++;
+                            }
+                        } %>
 
-<div id="{{ ._id }}" class="comment-thread">
-    <blockquote class="comment">
-        {{ .body | markdownify }}
-    </blockquote>
+                        <div id="<%- comment._id %>" class="media-body">
+                            <div class="media-heading"><%- commentName %>
+                                <span style="float: right;">
+                                <span class="text-muted"><%- comment.date %></span>
+                                    <% if(hasReplies == 0){ %>
+                                        <strong><a href="javascript:void(0);"
+                                                   onclick="replyTo('<%- comment._id %>','<%- commentName %>');return false;">Reply</a></strong>
+                                    <% } %>
+                                </span>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                        <% for(var i4 = commentArray.length - 1;i >= 0;i--){
+                            var comment4 = commentArray[i4];
+                            if (comment4.reply_to == comment4.parentId) { %>
+                                <div class="comment-reply">
+                                    <div class="comment-header">
+                                        <figure class="frame comment-avatar">
+                                            <img class="comment-avatar"
+                                                 src="https://www.gravatar.com/avatar/<%- comment.email %>?s=70">
+                                        </figure>
+                                        <p class="comment-info"><strong><%- commentName %></strong><br><i></small>In reply
+                                                to <%- parentName %></i><br></p>
+                                    </div>
+                                    <blockquote class="comment">
+                                        <%- comment4.body %>
+                                    </blockquote>
+                                </div>
+                            <% } %>
+                        <% } %>
 
-    {{ if eq $hasReplies 0 }}
-    <div class="comment-reply-button">
-        <input id="{{ ._id }}" type="button" class="right" value="Reply to {{ .name }}" onclick="replyTo('{{ ._id }}', '{{ .name }}')" />
-    </div>
-    {{ end }}
-
-    <div style="clear: both;"></div>
-
-    {{ range $comments }}
-    {{ if eq .reply_to $parentId }}
-    <div class="comment-reply">
-        <div class="comment-header">
-            <figure class="frame comment-avatar">
-                <img class="comment-avatar" src="https://www.gravatar.com/avatar/{{ .email }}?s=70">
-            </figure>
-            <p class="comment-info"><strong>{{ .name }}</strong><br><i><small>In reply to {{ $parentName }}</i><br>{{ dateFormat "Monday, Jan 2, 2006" .date }}</small></p>
+                        <% if (hasReplies > 0) { %>
+                            <div class="comment-reply-button-reply">
+                                <input type="button" class="right" value="Reply to Thread"
+                                       onclick="replyTo('<%- comment._id %>','<%- commentName %>')"/>
+                            </div>
+                            <div style="clear: both;"></div>
+                        <% } %>
+                    </div>
+                </div>
+                <% } %>
         </div>
-        <blockquote class="comment">
-            {{ .body | markdownify }}
-        </blockquote>
-    </div>
-    {{ end }}
-    {{ end }}
-
-    {{ if gt $hasReplies 0 }}
-    <div class="comment-reply-button-reply">
-        <input type="button" class="right" value="Reply to Thread" onclick="replyTo('{{ ._id }}', '{{ .name }}')" />
-    </div>
-    <div style="clear: both;"></div>
-    {{ end }}
-</div>
-
-{{ end }}
-{{ end }}
-{{ end }}
+        <% } %>
+    <% }else{ %>
+        <div class="comment-empty">No comments yet</div>
+    <% } %>
+<% } %>
