@@ -42,7 +42,7 @@ comments:
   # (*) REQUIRED
   #
   # Destination path (directory) for the data files. Accepts placeholders.
-  path: "source/_data/comments/{options.slug}/{options.entryId}"
+  path: "source/_data/comments/{options.entryId}"
 
   # (*) REQUIRED
   #
