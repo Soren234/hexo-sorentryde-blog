@@ -11,7 +11,7 @@
 
     <div id="comment-form-wrapper" style="margin-top: 10px;">
         <form method="POST"
-              action="http://blog-comment-system.herokuapp.com/v3/entry/github/<%- theme.staticman %>master/comments"
+              action="http://blog-comment-system.herokuapp.com/v2/entry/<%- theme.staticman %>master/comments"
               id="comment-form">
             <input type="hidden" name="options[origin]" value="<%- config.url %><%- config.root %><%- post.path %>">
             <input type="hidden" name="options[parent]" value="<%- post.slug %>">
