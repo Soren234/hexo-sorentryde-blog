@@ -17,9 +17,16 @@
       <header class="article-header">
         <%- partial('post/title', {class_name: 'article-title'}) %>
       </header>
-      <div class="article-meta">
+      <div class="row justify-content-start article-meta">
+          <div class="col-md-auto">
+          <%- partial('post/profile') %>
+          </div>
+          <div class="col-md-auto">
           <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
+          </div>
+          <div class="col-md-auto">
           <%- partial('post/category') %>
+          </div>
       </div>
     <% } %>
     <div class="article-entry" itemprop="articleBody">

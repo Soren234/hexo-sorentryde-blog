@@ -6,6 +6,8 @@ tags:
     - Redesign
     - Hexo.io
     - Jekyll
+categories:
+- Dev / Project
 ---
 <p>New computer calls for installation of tools and projects. 
 I remembered installing Jekyll, was a not so easy task when using Windows. So i decided it was time to look for alternatives.</p>

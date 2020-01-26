@@ -7,6 +7,8 @@ thumbnail:
 tags: 
   - csgo2play 
   - real-life
+categories:
+- Dev / Project
 carousel:
   - image: /images/carousel/IMG_20180721_112328.jpg
     text : Test

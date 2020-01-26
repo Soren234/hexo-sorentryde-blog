@@ -5,6 +5,8 @@ tags:
     - Staticman
     - Sorentryde.dk
     - Comments
+categories:
+- Dev / Project
 ---
 <p>After finishing the overall conversion from Jekyll to Hexo, i decided to use <a href="http://staticman.net">Staticman.net</a> as my commenting system.</p>
 

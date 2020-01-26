@@ -7,6 +7,8 @@ tags:
     - csgo2play 
     - new_changes 
     - Counter-strike
+categories:
+- Dev / Project
 ---
 
 ![Csgo2play.net updated.](/images/csgo_update.png)
