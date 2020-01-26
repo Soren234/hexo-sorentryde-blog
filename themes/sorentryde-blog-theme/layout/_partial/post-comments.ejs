@@ -1,77 +1,73 @@
 <section>
     <div id="comment-form" style="margin-top: 20px;">
-        <div class="card">
-            <div class="card-body">
-            <p id="comment-form-header" style="margin: 0.5em 0 0;line-height: 1.5;font-size: 14px;color: #666;">Say something</p>
-            <form method="POST" onsubmit="startAnimation()"
-                  action="http://blog-comment-system.herokuapp.com/v2/entry/<%- theme.staticman %>master/comments"
-                  id="comment-form">
-                <input type="hidden" name="options[origin]" value="<%- config.url %><%- config.root %><%- post.path %>">
-                <input type="hidden" name="options[parent]" value="<%- post.slug %>">
-                <input type="hidden" name="options[entryId]" value="<%- post.slug %>">
-                <input type="hidden" name="options[redirect]" value="<%- config.url %><%- config.root %><%- post.path %>#comment-success">
-                <input type="hidden" name="options[redirectError]" value="<%- config.url %><%- config.root %><%- post.path %>#comment-error">
-                <input type="hidden" name="options[slug]" value="<%- post.slug %>">
-                <input type="hidden" name="fields[reply_to]" value="">
-                <input type="hidden" name="options[reCaptcha][siteKey]" value="<%- theme.reCaptcha.siteKey %>">
-                <input type="hidden" name="options[reCaptcha][secret]" value="<%- theme.reCaptcha.secret %>">
+        <p id="comment-form-header" style="margin: 0.5em 0 0;line-height: 1.5;font-size: 14px;color: #666;">Say something</p>
+        <form method="POST" onsubmit="startAnimation()"
+              action="http://blog-comment-system.herokuapp.com/v2/entry/<%- theme.staticman %>master/comments"
+              id="comment-form">
+            <input type="hidden" name="options[origin]" value="<%- config.url %><%- config.root %><%- post.path %>">
+            <input type="hidden" name="options[parent]" value="<%- post.slug %>">
+            <input type="hidden" name="options[entryId]" value="<%- post.slug %>">
+            <input type="hidden" name="options[redirect]" value="<%- config.url %><%- config.root %><%- post.path %>#comment-success">
+            <input type="hidden" name="options[redirectError]" value="<%- config.url %><%- config.root %><%- post.path %>#comment-error">
+            <input type="hidden" name="options[slug]" value="<%- post.slug %>">
+            <input type="hidden" name="fields[reply_to]" value="">
+            <input type="hidden" name="options[reCaptcha][siteKey]" value="<%- theme.reCaptcha.siteKey %>">
+            <input type="hidden" name="options[reCaptcha][secret]" value="<%- theme.reCaptcha.secret %>">
 
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i data-feather="user" class="feather-16" stroke-width="2"></i> </span>
-                    </div>
-                    <input class="form-control" placeholder="Please enter your name *" name="fields[name]" data-error="Name is required." required="required">
-                    <div class="help-block with-errors"></div>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i data-feather="user" class="feather-16" stroke-width="2"></i> </span>
                 </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i data-feather="mail" class="feather-16" stroke-width="2"></i> </span>
-                    </div>
-                    <input class="form-control" placeholder="Please enter your email *" name="fields[email]" data-error="Email is required." required="required">
-                    <div class="help-block with-errors"></div>
-                </div>
-
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i data-feather="message-circle" class="feather-16" stroke-width="2"></i> </span>
-                    </div>
-                    <textarea class="form-control" placeholder="Please enter a massage (Markdown) *" name="fields[body]" rows="7" data-error="Message is required." required="required"></textarea>
-                </div>
-
-                <% if(theme.notifications){ %>
-                <fieldset>
-                    <div>
-                        <input type="checkbox" name="options[subscribe]" value="email">
-                        Send me an email when someone comments on this post.
-                    </div>
-                </fieldset>
-                <% } %>
-
-                <div class="form-group">
-                    <div class="g-recaptcha" data-sitekey="<%- theme.reCaptcha.siteKey %>" data-callback="enableBtn" data-expired-callback="disableBtn"></div>
-                    <div class="help-block with-errors"></div>
-                </div>
-
-                <div class="form-group">
-                    <button type="submit" class="btn btn-success btn-sm btn-send" id="comment-submit-button"><div id="loading-animation" class="lds-ring"><div></div><div></div><div></div><div></div></div>Submit comment</button>
-                    <input type="hidden" name="fields[path]" value="<%- post.path %>">
-
-                    <button type="button" class="btn btn-success btn-sm float-right"
-                            onclick="newComment('comments')">Reply to post
-                    </button>
-                </div>
-
-            </form>
-                <div id="comment-success" class="alert alert-success" role="alert" style="display: none">
-                    <h4 class="alert-heading">Thank you!</h4>
-                    <p>Your comment has been submitted and will be published once it has been build.</p>
-                </div>
-                <div id="comment-error" class="alert alert-danger" role="alert" style="display: none">
-                    <h3>OOPS!</h3>
-                    <p>Your comment has not been submitted. Please try again. Thank You!</p>
-                </div>
+                <input class="form-control" placeholder="Please enter your name *" name="fields[name]" data-error="Name is required." required="required">
+                <div class="help-block with-errors"></div>
             </div>
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i data-feather="mail" class="feather-16" stroke-width="2"></i> </span>
+                </div>
+                <input class="form-control" placeholder="Please enter your email *" name="fields[email]" data-error="Email is required." required="required">
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i data-feather="message-circle" class="feather-16" stroke-width="2"></i> </span>
+                </div>
+                <textarea class="form-control" placeholder="Please enter a massage (Markdown) *" name="fields[body]" rows="7" data-error="Message is required." required="required"></textarea>
+            </div>
+
+            <% if(theme.notifications){ %>
+            <fieldset>
+                <div>
+                    <input type="checkbox" name="options[subscribe]" value="email">
+                    Send me an email when someone comments on this post.
+                </div>
+            </fieldset>
+            <% } %>
+
+            <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="<%- theme.reCaptcha.siteKey %>" data-callback="enableBtn" data-expired-callback="disableBtn"></div>
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-sm btn-send" id="comment-submit-button"><div id="loading-animation" class="lds-ring"><div></div><div></div><div></div><div></div></div>Submit comment</button>
+                <input type="hidden" name="fields[path]" value="<%- post.path %>">
+
+                <button type="button" class="btn btn-success btn-sm float-right"
+                        onclick="newComment('comments')">Reply to post
+                </button>
+            </div>
+
+        </form>
+        <div id="comment-success" class="alert alert-success" role="alert" style="display: none">
+            <h4 class="alert-heading">Thank you!</h4>
+            <p>Your comment has been submitted and will be published once it has been build.</p>
+        </div>
+        <div id="comment-error" class="alert alert-danger" role="alert" style="display: none">
+            <h3>OOPS!</h3>
+            <p>Your comment has not been submitted. Please try again. Thank You!</p>
         </div>
     </div>
 </section>
