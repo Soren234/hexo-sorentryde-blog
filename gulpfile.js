@@ -45,7 +45,7 @@ gulp.task('deploy', function() {
 });
 
 gulp.task('concat-js', function() {
-    return gulp.src([paths.node_modules + 'jquery/jquery.js', paths.node_modules + 'feather-icons/dist/feather.js', paths.node_modules + 'bootstrap/dist/js/bootstrap.js'])
+    return gulp.src([paths.node_modules + 'jquery/jquery.js', paths.node_modules + 'feather-icons/dist/feather.js', paths.node_modules + 'bootstrap/dist/js/bootstrap.bundle.js'])
         .pipe(concat('scripts.js'))
         .pipe(gulp.dest('./public/js'));
 });

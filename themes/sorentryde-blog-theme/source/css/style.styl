@@ -1,6 +1,7 @@
 @import "nib"
 @import "_variables"
 @import "_util/_feather"
+@import "_util/_extend"
 
 global-reset()
 
@@ -66,6 +67,14 @@ a:focus {
 }
 p {
   line-height: 1.5;
+}
+
+#tooltip {
+  background-color: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 13px;
 }
 
 .wrapper {
@@ -171,3 +180,4 @@ p {
 @import "_partial/sidebar"
 @import "_partial/pagination"
 @import "_partial/comment"
+@import "_partial/highlight"
