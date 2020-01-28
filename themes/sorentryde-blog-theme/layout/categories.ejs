@@ -1,0 +1,8 @@
+<div class="menu">
+    <h3 class="menu-label">
+        <%= page.title %>
+    </h3>
+    <% if(site.categories.length) { %>
+        <%- list_categories(site.categories) %>
+    <% } %>
+</div>

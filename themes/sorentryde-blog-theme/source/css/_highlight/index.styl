@@ -1,0 +1,59 @@
+.highlight
+    margin: 0
+    max-width: 100%;
+    overflow-x: auto
+    font-size: font-size
+    font-family: font-mono
+    line-height: font-size * line-height
+    display: grid;
+    table
+        margin: 0
+        line-height: 1.4em
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        td
+            border: none
+        td.code
+            padding-right: 20px
+
+    .gutter
+        pre
+            color: #666
+            text-align: right
+            padding: 0px 0.75em 0px 0.75em;
+
+    figcaption,
+    .gutter
+        background: rgba(200, 200, 200, 0.15)
+
+    figcaption
+        margin: 0 !important
+        padding: .3em .75em
+        text-align: left
+        font-style: normal
+        font-size: .8em
+        display: table-caption;
+        caption-side: top;
+        overflow: auto;
+
+        span
+
+        .fold
+        a
+            color: #9a9a9a
+
+        a
+            margin-left: 0.5em
+            float: right
+
+        .fold
+            margin-right: 0.5em
+            cursor: pointer
+
+
+.article-entry
+    .highlight
+        margin: 1.6em 0
+
+@import "_highlight/" + highlight
