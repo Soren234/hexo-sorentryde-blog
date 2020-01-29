@@ -9,6 +9,13 @@ recent_comment: 0
 comment_reply: false
 notifications: false
 
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  theme: 'github'
+
 reCaptcha:
   enabled: true
   siteKey: "6LcnQEwUAAAAAG4biRYcrrF0WboQEQcr19bkqNiJ"
