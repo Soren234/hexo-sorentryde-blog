@@ -1,7 +1,7 @@
 <% if (post.categories && post.categories.length){ %>
   <div class="article-category">
     <% post.categories.each(function(item){ %>
-        <a href="<%- url_for(item.path) %>" class="article-category-link"><i data-feather="folder" class="feather-20" stroke-width="1.5"></i> <%= item.name %></a>
+        <a href="<%- url_for(item.path) %>" class="article-category-link"><i data-feather="folder" class="feather-18" stroke-width="1.5"></i> <%= item.name %></a>
     <% }) %>
   </div>
 <% } %>
