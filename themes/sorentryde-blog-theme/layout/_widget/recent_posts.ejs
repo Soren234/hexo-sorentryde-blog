@@ -4,10 +4,10 @@
     <div class="widget">
       <ul>
         <% site.posts.sort('date', -1).limit(5).each(function(post){ %>
-          <div class="item">
+          <li class="item">
               <h4 class="degree"><a href="<%- url_for(post.path) %>" style="font-weight:700"><%= post.title || '(no title)' %></a></h4>
               <div class="time"><%- date(post.date) %></div>
-          </div>
+          </li>
         <% }) %>
       </ul>
     </div>

@@ -3,37 +3,37 @@
     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
         <% if(config.email) { %>
         <div class="btn-group mr-1" role="group">
-            <a type="button" class="btn btn-outline-light btn-circle contact-info-button" href="mailto:<%- config.email %>" data-placement="bottom"
-               data-toggle="tooltip" title="<%- config.email %>"><i data-feather="mail" stroke-width="2" class="feather-18"></i>
-            </a>
+            <button type="button" class="btn btn-outline-light btn-circle contact-info-button" onclick="window.open('mailto:<%- config.email %>');" data-placement="bottom"
+               data-toggle="tooltip" title="<%- config.email %>" aria-label="Email"><i data-feather="mail" stroke-width="2" class="feather-18"></i>
+            </button>
         </div>
         <% } %>
         <% if(config.phone) { %>
         <div class="btn-group mr-1" role="group">
-            <a type="button" class="btn btn-outline-light btn-circle contact-info-button" href="tel:<%- config.phone %>" data-placement="bottom"
-               data-toggle="tooltip" title="<%- config.phone %>" rel="noreferrer"><i data-feather="phone" stroke-width="2" class="feather-18"></i>
-            </a>
+            <button type="button" class="btn btn-outline-light btn-circle contact-info-button" onclick="window.open('tel:<%- config.phone %>');" data-placement="bottom"
+               data-toggle="tooltip" title="<%- config.phone %>" aria-label="Phone" rel="noreferrer"><i data-feather="phone" stroke-width="2" class="feather-18"></i>
+            </button>
         </div>
         <% } %>
         <% if(config.website) { %>
         <div class="btn-group mr-1" role="group">
-            <a type="button" class="btn btn-outline-light btn-circle contact-info-button" href="http://<%- config.website %>" data-placement="bottom"
-               data-toggle="tooltip" title="http://<%- config.website %>" rel="noreferrer"><i data-feather="globe" stroke-width="2" class="feather-18"></i>
-            </a>
+            <button type="button" class="btn btn-outline-light btn-circle contact-info-button" onclick="window.open('http://<%- config.website %>','_blank');" data-placement="bottom"
+               data-toggle="tooltip" title="http://<%- config.website %>" aria-label="Website" rel="noreferrer"><i data-feather="globe" stroke-width="2" class="feather-18"></i>
+            </button>
         </div>
         <% } %>
         <% if(config.website) { %>
         <div class="btn-group mr-1" role="group">
-            <a type="button" class="btn btn-outline-light btn-circle contact-info-button" href="https://linkedin.com/in/<%- config.linkedin %>" target="_blank" data-placement="bottom"
-               data-toggle="tooltip" title="https://linkedin.com/in/<%- config.linkedin %>" rel="noreferrer"><i data-feather="linkedin" stroke-width="2" class="feather-18"></i>
-            </a>
+            <button type="button" class="btn btn-outline-light btn-circle contact-info-button" onclick="window.open('https://linkedin.com/in/<%- config.linkedin %>','_blank');" data-placement="bottom"
+               data-toggle="tooltip" title="https://linkedin.com/in/<%- config.linkedin %>" aria-label="Linkedin" rel="noreferrer"><i data-feather="linkedin" stroke-width="2" class="feather-18"></i>
+            </button>
         </div>
         <% } %>
         <% if(config.github) { %>
         <div class="btn-group mr-1" role="group">
-            <a type="button" class="btn btn-outline-light btn-circle contact-info-button" href="http://github.com/<%- config.github %>" target="_blank" data-placement="bottom"
-               data-toggle="tooltip" title="http://github.com/<%- config.github %>" rel="noreferrer"><i data-feather="github" stroke-width="2" class="feather-18"></i>
-            </a>
+            <button type="button" class="btn btn-outline-light btn-circle contact-info-button" onclick="window.open('http://github.com/<%- config.github %>','_blank');" data-placement="bottom"
+               data-toggle="tooltip" title="http://github.com/<%- config.github %>" aria-label="Github" rel="noreferrer"><i data-feather="github" stroke-width="2" class="feather-18"></i>
+            </button>
         </div>
         <% } %>
         <% if(config.twitter) { %>
