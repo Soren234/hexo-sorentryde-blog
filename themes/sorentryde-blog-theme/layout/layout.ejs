@@ -3,17 +3,6 @@
 <%- partial('_partial/head') %>
 <body>
 
-<script>
-    $( window ).on("load resize", function() {
-        var contact_info_element = $('.contact-info');
-        if ($(window).width() < 992) {
-            contact_info_element.appendTo('.after-body');
-            contact_info_element.css('display', 'block')
-        } else {
-            contact_info_element.appendTo('.contact-info-bar');
-        }
-    });
-</script>
 <div class="wrapper">
     <div class="row no-gutters">
         <div class="col-lg-9 order-lg-1 order-2 grid-container">

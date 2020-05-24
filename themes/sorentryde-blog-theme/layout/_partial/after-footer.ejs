@@ -1,3 +1,31 @@
+<%- css('css/bundled.css') %>
+<%- css('css/style.css') %>
+<%- js('js/scripts') %>
+
+<script>
+    // Initialize tooltip component
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    // Initialize popover component
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+</script>
+
+<script>
+    $( window ).on("load resize", function() {
+        var contact_info_element = $('.contact-info');
+        if ($(window).width() < 992) {
+            contact_info_element.appendTo('.after-body');
+            contact_info_element.css('display', 'block')
+        } else {
+            contact_info_element.appendTo('.contact-info-bar');
+        }
+    });
+</script>
+
 <script>
     feather.replace()
 </script>

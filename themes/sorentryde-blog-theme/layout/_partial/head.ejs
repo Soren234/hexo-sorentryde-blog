@@ -21,26 +21,11 @@
     %>
     <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="Description" content="Sorentryde.dk blog made by Søren Tryde Andersen.">
     <% if (theme.rss){ %>
         <link rel="alternate" href="<%= url_for(theme.rss) %>" title="<%= config.title %>" type="application/atom+xml">
     <% } %>
     <% if (theme.favicon){ %>
         <link rel="icon" href="<%- theme.favicon %>">
     <% } %>
-
-    <%- css('css/bundled.css') %>
-    <%- css('css/style.css') %>
-    <%- js('js/scripts') %>
-
-    <script>
-        // Initialize tooltip component
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-
-        // Initialize popover component
-        $(function () {
-            $('[data-toggle="popover"]').popover()
-        })
-    </script>
 </head>
