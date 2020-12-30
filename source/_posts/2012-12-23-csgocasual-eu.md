@@ -3,7 +3,8 @@ layout: post
 title: "CSGO server list project"
 date: 2012-12-23 02:28
 author: Soren Tryde
-tags: csgo2play
+tags: 
+- csgo2play
 categories:
 - Dev / Project
 ---
