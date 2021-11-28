@@ -56,7 +56,11 @@
 
 <% if (!index && post.comments){ %>
 <section id="comments">
-    <%- partial('show-comments') %>
-    <%- partial('post-comments') %>
+    <% if(theme.comment_history){ %>
+        <%- partial('show-comments') %>
+    <% } %>
+    <% if(theme.comment_enable){ %>
+        <%- partial('post-comments') %>
+    <% } %>
 </section>
 <% } %>

@@ -4,7 +4,7 @@ google_analytics:
 
 staticman: Soren234/hexo-sorentryde-blog/
 comment_history: true
-comment_enable: true
+comment_enable: false
 recent_comment: 0
 comment_reply: false
 notifications: false

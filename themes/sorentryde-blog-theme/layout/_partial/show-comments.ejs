@@ -37,7 +37,7 @@
             <p class="attribution">by <a><%- comment.name %></a> at <span class="comment-date"><%- date(comment.date, 'YYYY-MM-DD') %></span></p>
             <div id="<%- comment._id %>" class="comment-thread">
 
-                <% if(hasReplies == 0){ %>
+                <% if(hasReplies == 0 && theme.comment_enable){ %>
                 <div class="comment-reply-button">
                     <button type="button" class="btn btn-success btn-sm float-right"
                             onclick="replyTo('<%- comment._id %>','<%- comment.name %>')">Reply
@@ -67,7 +67,7 @@
                     <% } %>
                     <% } %>
                     </section>
-                <% if (hasReplies > 0) { %>
+                <% if (hasReplies > 0 && theme.comment_enable) { %>
                     <div class="comment-reply-button">
                         <button type="button" class="btn btn-success btn-sm float-right"
                                 onclick="replyTo('<%- comment._id %>','<%- comment.name %>')">Reply to Thread
