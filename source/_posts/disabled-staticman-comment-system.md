@@ -3,6 +3,8 @@ title: Disabled Staticman comment system
 date: 2021-12-05T17:46:09.146Z
 tags:
   - Staticman
+  - Hexo.io
+  - Sorentryde.dk
 categories:
   - Dev / Staticman
 ---
