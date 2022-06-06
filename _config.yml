@@ -13,7 +13,7 @@ timezone: ''
 
 #Profile information
 name: Søren Tryde Andersen
-tagline: Senior Software Developer
+tagline: Tech Lead
 avatar: images/profile.png
 pic: profile.png  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
 summary: 'My passion is to create software. I strive to learn about everything from CD/CI Object-oriented programming languages to javascript frameworks like Angular/Reactjs.
