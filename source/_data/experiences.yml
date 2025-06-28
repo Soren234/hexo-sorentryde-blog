@@ -1,9 +1,9 @@
 - experience:
-  role: Senior Software Developer
+  role: Tech Lead
   time: Oct 2016 - Present
-  company: Topdanmark.dk
+  company: If.dk (previously Topdanmark.dk)
   details: "Various internal systems, which includes intranet solutions and app's for particular internal business needs.
-            Sharepoint Online, C#, Java, AngularJS, Notes 9, TeamCity, Octopus, Jenkins, Azure, Wildfly, Scrum, Kanban and much more."
+            Sharepoint Online, C#, Java, TypeScript, React, Azure DevOps, Azure Cloud, Wildfly, Scrum, and much more."
 - experience:
   role: Senior Software Developer
   time: Oct 2016 - July 2019

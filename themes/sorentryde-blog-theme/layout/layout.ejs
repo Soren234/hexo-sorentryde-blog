@@ -2,34 +2,37 @@
 <html lang="en">
 <!-- Head tag -->
 <%- partial('_partial/head') %>
-<body>
 
-<div class="wrapper">
-    <div class="row no-gutters">
-        <div class="col-lg-9 order-lg-1 order-2 grid-container">
-            <div class="before-footer">
-                <%- partial('_partial/nav') %>
-                <div class="main-wrapper">
-                <%- body %>
+    <body>
+
+        <div class="wrapper">
+            <div class="row no-gutters">
+                <div class="col-lg-9 order-lg-1 order-2 grid-container">
+                    <div class="before-footer">
+                        <!-- <%- partial('_partial/nav') %> -->
+                        <div class="main-wrapper">
+                            <%- body %>
+                        </div>
+                        <div class="sidebar-wrapper">
+                            <div class="after-body"></div>
+                        </div>
+                    </div>
+                    <%- partial('_partial/footer') %>
                 </div>
-                <div class="sidebar-wrapper">
-                    <div class="after-body"></div>
+                <div class="col-lg-3 order-lg-2">
+                    <div class="sidebar-wrapper">
+                        <div><%- partial('_partial/sidebar') %></div>
+                        <div class="contact-info-bar order-1">
+                            <div class="contact-info"><%- partial('_partial/contact-info') %></div>
+                        </div>
+                        <div class="changelog-list order-3"><%- partial('_partial/changelog') %></div>
+                    </div>
                 </div>
             </div>
-            <%- partial('_partial/footer') %>
-        </div>
-        <div class="col-lg-3 order-lg-2">
-            <div class="sidebar-wrapper">
-                <div class="order-1"><%- partial('_partial/sidebar') %></div>
-                <div class="contact-info-bar">
-                    <div class="contact-info" class="order-3"><%- partial('_partial/contact-info') %></div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-</div>
-<!-- After footer scripts -->
-<%- partial('_partial/after-footer') %>
-</body>
+        </div>
+        <!-- After footer scripts -->
+        <%- partial('_partial/after-footer') %>
+    </body>
+
 </html>

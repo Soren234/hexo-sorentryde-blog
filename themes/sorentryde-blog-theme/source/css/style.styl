@@ -7,8 +7,12 @@ global-reset()
 
 body
   font-family: Roboto, sans-serif;
-  color: #545E6C;
-  background: #f0f0f0;
+  color: #e0e0e0;
+  background:
+    linear-gradient(135deg, rgba(30, 60, 114, 0.35), rgba(42, 82, 152, 0.35)),
+    url('background.jpg');
+  background-size: cover;
+  background-position: center;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -49,14 +53,15 @@ h4,
 h5,
 h6 {
   font-weight: 700;
+  color: #fff;
 }
 a {
-  color: #2e4049;
+  color: #8ab4f8;
   font-weight: bolder;
 }
 a:hover {
   text-decoration: underline;
-  color: #10171a;
+  color: #bb86fc;
 }
 a:focus {
   text-decoration: none;
@@ -66,20 +71,22 @@ p {
 }
 
 #tooltip {
-  background-color: #333;
-  color: white;
+  background-color: #222;
+  color: #fff;
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 13px;
 }
 
 .wrapper {
-  background: #4B6A78;
-  max-width: 1024px;
+  background: #23272e;
+  max-width: 1224px;
   margin: 0 auto;
-  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid #205682;      /* Dark gray border */
+  border-radius: 1px;         /* Rounded corners for a modern look */
+  box-shadow: 0 2px 8px #222;  /* Subtle shadow for depth */
 }
 
 .before-footer {
@@ -87,19 +94,19 @@ p {
 }
 
 .grid-container {
-  background-color: white;
+  background-color: #23272e;
   position: relative;
   min-height: 100vh;
 }
 
 .main-wrapper {
-  background: #fff;
+  background: #1d1f21;
 }
 .main-wrapper .section-title {
   text-transform: uppercase;
   font-size: 20px;
   font-weight: 500;
-  color: #2e4049;
+  color: #8ab4f8;
   position: relative;
   margin-top: 0;
   margin-bottom: 20px;
@@ -109,19 +116,15 @@ p {
   height: 35px;
   margin-right: 8px;
   display: inline-block;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
   border-radius: 50%;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
   background-clip: padding-box;
   text-align: center;
   padding-top: 5px;
   font-size: 16px;
   position: relative;
   top: -2px;
+  background: #23272e;
+  color: #8ab4f8;
 }
 .main-wrapper .section {
   margin-bottom: 60px;
@@ -135,7 +138,7 @@ p {
   margin-bottom: 2px;
 }
 .main-wrapper .job-title {
-  color: #3F4650;
+  color: #e0e0e0;
   font-size: 16px;
   margin-top: 0;
   margin-bottom: 0;
@@ -145,16 +148,16 @@ p {
   position: absolute;
   right: 0;
   top: 0;
-  color: #2f343a;
+  color: #b0b0b0;
   font-style italic;
   margin-right: 2px;
 }
 .main-wrapper .company {
   margin-bottom: 10px;
-  color: #2f343a;
+  color: #b0b0b0;
 }
 .main-wrapper .project-title {
-  color: #3F4650;
+  color: #e0e0e0;
   font-size: 16px;
   font-weight: 500;
   margin-top: 0;
@@ -175,7 +178,7 @@ p {
 }
 
 .navbar-dark .navbar-nav .nav-link.active {
-  background: rgba(0,0,0,0.2);
+  background: rgba(255,255,255,0.1);
   color: #fff;
 }
 
@@ -183,7 +186,7 @@ p {
 }
 
 .menu-label {
-  color: #7a7a7a;
+  color: #b0b0b0;
   font-size: 0.75em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -195,7 +198,7 @@ p {
 
 .category-list a {
   border-radius: 2px;
-  color: #4a4a4a;
+  color: #8ab4f8;
 }
 
 .category-list-item {
@@ -209,9 +212,9 @@ p {
 
 .category-list-count:not(body) {
   align-items: center;
-  background-color: whitesmoke;
+  background-color: #23272e;
   border-radius: 4px;
-  color: #4a4a4a;
+  color: #8ab4f8;
   display: inline-flex;
   font-size: 0.75rem;
   height: 2em;
@@ -227,7 +230,7 @@ p {
 }
 
 .category-list li ul {
-  border-left: 1px solid #dbdbdb;
+  border-left: 1px solid #444;
   margin: 0.75em;
   padding-left: 0.75em;
 }
@@ -242,7 +245,7 @@ p {
 
 .tag-list a {
   border-radius: 2px;
-  color: #4a4a4a;
+  color: #8ab4f8;
 }
 
 .tag-list-item {
@@ -256,9 +259,9 @@ p {
 
 .tag-list-count:not(body) {
   align-items: center;
-  background-color: whitesmoke;
+  background-color: #23272e;
   border-radius: 4px;
-  color: #4a4a4a;
+  color: #8ab4f8;
   display: inline-flex;
   font-size: 0.75rem;
   height: 2em;
@@ -274,7 +277,7 @@ p {
 }
 
 .tag-list li ul {
-  border-left: 1px solid #dbdbdb;
+  border-left: 1px solid #444;
   margin: 0.75em;
   padding-left: 0.75em;
 }

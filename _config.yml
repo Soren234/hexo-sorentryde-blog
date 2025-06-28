@@ -16,14 +16,20 @@ name: Søren Tryde Andersen
 tagline: Tech Lead
 avatar: images/profile.png
 pic: profile.png  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
-summary: 'My passion is to create software. I strive to learn about everything from CD/CI Object-oriented programming languages to javascript frameworks like Angular/Reactjs.
-I have experience with multiple programming languages and currently i am working as a software developer at a pension and insurance company.'
+summary: 'I’m passionate about building software that creates real value. Currently, I work as a software developer at a pension and insurance company, where I design and develop solutions using a wide range of technologies.
+
+My technical stack includes C#, JavaScript, TypeScript, Java, and PowerShell, which I apply across both frontend and backend systems. I’m experienced with modern frameworks like Angular and React, and I follow object-oriented principles, design patterns, and clean code practices to ensure scalable and maintainable applications.
+
+Beyond coding, I work extensively with infrastructure and cloud technologies, including Windows Server and Azure Cloud, to deploy and manage reliable, secure environments. One of my key responsibilities is building and maintaining the company’s DEX platform — an internal solution built on Microsoft 365 services like SharePoint and Teams — to drive collaboration and streamline business processes.
+
+Driven by curiosity and a commitment to growth, I’m always exploring areas like CI/CD pipelines, software architecture, and emerging tools and frameworks to keep improving what I build.'
 
 #sidebar links
 email: sorentryde@gmail.com
 website: sorentryde.dk #do not add http://
 linkedin: søren-tryde-andersen
 github: Soren234
+gitlab: sorentryde
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
