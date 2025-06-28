@@ -101,6 +101,6 @@ export { minifyCss as 'minify-css' };
 export { minifyHtml as 'minify-html' };
 export { minifyImg as 'minify-img' };
 export { minifyJs as 'minify-js' };
-export const compress = gulp.series(minifyHtml, minifyCss, minifyJs, minifyImg);
+export const compress = gulp.series(minifyHtml, minifyCss, minifyJs);
 export default gulp.series(clean, generate, concatTask, compress);
 export { concatTask as concat };
