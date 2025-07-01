@@ -15,6 +15,7 @@
       <span id="eci-progress-text"></span>
     </div>
   </div>
+  <div id="eci-goal-message" style="margin-top: 8px; font-weight: bold; color: #28a745;"></div>
 </div>
 <script>
   function updateECIProgress() {
@@ -26,20 +27,25 @@
         const percent = (count / goal) * 100;
         const fill = document.getElementById('eci-progress-fill');
         const text = document.getElementById('eci-progress-text');
+        const goalMsg = document.getElementById('eci-goal-message');
         fill.style.width = (percent > 100 ? 100 : percent) + '%';
         fill.setAttribute('aria-valuenow', percent.toFixed(1));
         text.textContent = `${count.toLocaleString()} / ${goal.toLocaleString()} (${percent.toFixed(1)}%)`;
-        if (percent > 100) {
-          fill.classList.remove('bg-success');
-          fill.classList.add('bg-danger');
-          text.textContent += ' (Goal exceeded!)';
-        } else {
+
+        // Remove all possible color classes first
+        fill.classList.remove('bg-info', 'bg-success');
+
+        if (percent >= 100) {
           fill.classList.add('bg-success');
-          fill.classList.remove('bg-danger');
+          goalMsg.textContent = '🎉 Goal reached!';
+        } else {
+          fill.classList.add('bg-info');
+          goalMsg.textContent = '';
         }
       })
       .catch(() => {
         document.getElementById('eci-progress-text').textContent = 'Failed to load data';
+        document.getElementById('eci-goal-message').textContent = '';
       });
   }
 
