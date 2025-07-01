@@ -2,11 +2,10 @@ const fs = require('fs');
 const path = require('path');
 
 hexo.extend.helper.register('last_build_time', function() {
-  const publicDir = path.join(hexo.base_dir, 'public', 'index.html');
+  const buildTimePath = path.join(hexo.public_dir, 'build_time.json');
   try {
-    const stats = fs.statSync(publicDir);
-    // More readable format: "July 1, 2025, 14:30"
-    return this.date(stats.mtime, 'MMMM D, YYYY, HH:mm');
+    const data = JSON.parse(fs.readFileSync(buildTimePath));
+    return this.date(new Date(data.buildTime), 'MMMM D, YYYY, HH:mm');
   } catch (e) {
     return '';
   }
