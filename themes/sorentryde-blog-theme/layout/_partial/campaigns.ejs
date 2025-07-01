@@ -1,0 +1,48 @@
+<div id="eci-progress-container" class="contact-container container-block">
+  <h2 class="container-block-title">Campaigns i follow:</h2>
+  <div class="mb-2">
+    <p>
+      <a href="https://www.stopkillinggames.com/" target="_blank" rel="noopener">
+        Stop Killing Games
+      </a>
+      is a EU consumer movement started to challenge the legality of publishers destroying video games they have sold to
+      customers.
+    </p>
+  </div>
+  <div class="progress" style="height: 32px; max-width: 400px;">
+    <div id="eci-progress-fill" class="progress-bar" role="progressbar"
+      style="width: 0%; font-weight: bold;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+      <span id="eci-progress-text"></span>
+    </div>
+  </div>
+</div>
+<script>
+  function updateECIProgress() {
+    fetch('https://eci.ec.europa.eu/045/public/api/report/progression')
+      .then(res => res.json())
+      .then(data => {
+        const count = data.signatureCount;
+        const goal = data.goal;
+        const percent = (count / goal) * 100;
+        const fill = document.getElementById('eci-progress-fill');
+        const text = document.getElementById('eci-progress-text');
+        fill.style.width = (percent > 100 ? 100 : percent) + '%';
+        fill.setAttribute('aria-valuenow', percent.toFixed(1));
+        text.textContent = `${count.toLocaleString()} / ${goal.toLocaleString()} (${percent.toFixed(1)}%)`;
+        if (percent > 100) {
+          fill.classList.remove('bg-success');
+          fill.classList.add('bg-danger');
+          text.textContent += ' (Goal exceeded!)';
+        } else {
+          fill.classList.add('bg-success');
+          fill.classList.remove('bg-danger');
+        }
+      })
+      .catch(() => {
+        document.getElementById('eci-progress-text').textContent = 'Failed to load data';
+      });
+  }
+
+  updateECIProgress(); // Initial call
+  setInterval(updateECIProgress, 5000); // Update every 5 seconds
+</script>

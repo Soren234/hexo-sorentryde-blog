@@ -1,5 +1,9 @@
 <div class="contact-container container-block">
   <ul>
-    <li>Site changed: Juni 28 2025</li>
+    <% if (last_build_time()) { %>
+      <li>Site last generated: <%= last_build_time() %></li>
+    <% } else { %>
+      <li>Site last generated: Unknown</li>
+    <% } %>
   </ul>
 </div>

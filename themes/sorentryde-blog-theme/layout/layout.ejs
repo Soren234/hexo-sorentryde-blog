@@ -7,7 +7,7 @@
 
         <div class="wrapper">
             <div class="row no-gutters">
-                <div class="col-lg-9 order-lg-1 order-2 grid-container">
+                <div class="col-lg-9 order-lg-1 order-1 grid-container">
                     <div class="before-footer">
                         <!-- <%- partial('_partial/nav') %> -->
                         <div class="main-wrapper">
@@ -19,13 +19,15 @@
                     </div>
                     <%- partial('_partial/footer') %>
                 </div>
-                <div class="col-lg-3 order-lg-2">
+                <div class="col-lg-3 order-lg-2 sidebar-container">
                     <div class="sidebar-wrapper">
                         <div><%- partial('_partial/sidebar') %></div>
-                        <div class="contact-info-bar order-1">
+                        <div class="contact-info-bar order-2 ">
                             <div class="contact-info"><%- partial('_partial/contact-info') %></div>
+                            <div class="campaigns"><%- partial('_partial/campaigns') %></div>
+                            <div class="changelog-list"><%- partial('_partial/changelog') %></div>
+
                         </div>
-                        <div class="changelog-list order-3"><%- partial('_partial/changelog') %></div>
                     </div>
                 </div>
             </div>

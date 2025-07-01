@@ -1,113 +1,125 @@
 <%- js('js/scripts') %>
-<script>
-    // Initialize tooltip component
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
+    <script>
+        // Initialize tooltip component
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
 
-    // Initialize popover component
-    $(function () {
-        $('[data-toggle="popover"]').popover()
-    })
-</script>
+        // Initialize popover component
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
 
-<script>
-    $( window ).on("load resize", function() {
-        var contact_info_element = $('.contact-info');
-        if ($(window).width() < 992) {
-            contact_info_element.appendTo('.after-body');
-            contact_info_element.css('display', 'block')
-        } else {
-            contact_info_element.appendTo('.contact-info-bar');
-        }
-    });
-</script>
+    <script>
+        $(window).on("load resize", function () {
+            var contact_info_element = $('.contact-info');
+            var changelog_list = $('.changelog-list');
 
-<script>
-    feather.replace()
-</script>
+            var campaigns = $('.campaigns');
 
-<script>
-    (function($){
-        // Share
-        $('body').on('click', function(){
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e){
-            e.stopPropagation();
+            if ($(window).width() < 992) {
+                contact_info_element.appendTo('.after-body');
+                campaigns.appendTo('.after-body');
+                changelog_list.appendTo('.after-body');
 
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset();
-
-            if ($('#' + id).length){
-                var box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
+                contact_info_element.css('display', 'block');
+                changelog_list.css('display', 'block');
+                campaigns.css('display', 'block');
             } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                    '<input class="article-share-input" value="' + url + '">',
-                    '</div>'
-                ].join('');
+                contact_info_element.appendTo('.contact-info-bar');
+                campaigns.appendTo('.contact-info-bar');
+                changelog_list.appendTo('.contact-info-bar');
 
-                var box = $(html);
-
-                $('body').append(box);
             }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-        }).on('click', '.article-share-box', function(e){
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function(){
-            $(this).select();
-        }).on('click', '.article-share-box-link', function(e){
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
         });
+    </script>
 
-        // Caption
-        $('.article-entry').each(function(i){
-            $(this).find('img').each(function(){
-                if ($(this).parent().hasClass('fancybox')) return;
+    <script>
+        feather.replace()
+    </script>
 
-                var alt = this.alt;
+    <script>
+            (function ($) {
+                // Share
+                $('body').on('click', function () {
+                    $('.article-share-box.on').removeClass('on');
+                }).on('click', '.article-share-link', function (e) {
+                    e.stopPropagation();
 
-                if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+                    var $this = $(this),
+                        url = $this.attr('data-url'),
+                        encodedUrl = encodeURIComponent(url),
+                        id = 'article-share-box-' + $this.attr('data-id'),
+                        offset = $this.offset();
 
-                $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-            });
+                    if ($('#' + id).length) {
+                        var box = $('#' + id);
 
-            $(this).find('.fancybox').each(function(){
-                $(this).attr('rel', 'article' + i);
-            });
-        });
+                        if (box.hasClass('on')) {
+                            box.removeClass('on');
+                            return;
+                        }
+                    } else {
+                        var html = [
+                            '<div id="' + id + '" class="article-share-box">',
+                            '<input class="article-share-input" value="' + url + '">',
+                            '</div>'
+                        ].join('');
 
-        if ($.fancybox){
-            $('.fancybox').fancybox();
-        }
-    })(jQuery);
-</script>
+                        var box = $(html);
 
-<script>
-    if (window.netlifyIdentity) {
-        window.netlifyIdentity.on('init', (user) => {
-            if (!user) {
-                window.netlifyIdentity.on('login', () => {
-                    document.location.href = '/admin/';
+                        $('body').append(box);
+                    }
+
+                    $('.article-share-box.on').hide();
+
+                    box.css({
+                        top: offset.top + 25,
+                        left: offset.left
+                    }).addClass('on');
+                }).on('click', '.article-share-box', function (e) {
+                    e.stopPropagation();
+                }).on('click', '.article-share-box-input', function () {
+                    $(this).select();
+                }).on('click', '.article-share-box-link', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
                 });
-            }
-        });
-    }
-</script>
+
+                // Caption
+                $('.article-entry').each(function (i) {
+                    $(this).find('img').each(function () {
+                        if ($(this).parent().hasClass('fancybox')) return;
+
+                        var alt = this.alt;
+
+                        if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+
+                        $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+                    });
+
+                    $(this).find('.fancybox').each(function () {
+                        $(this).attr('rel', 'article' + i);
+                    });
+                });
+
+                if ($.fancybox) {
+                    $('.fancybox').fancybox();
+                }
+            })(jQuery);
+    </script>
+
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on('init', (user) => {
+                if (!user) {
+                    window.netlifyIdentity.on('login', () => {
+                        document.location.href = '/admin/';
+                    });
+                }
+            });
+        }
+    </script>
