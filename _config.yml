@@ -96,15 +96,6 @@ updated_option: date
 per_page: 5
 pagination_dir: page
 
-# gitalk
-gitalk:
-  clientID: Iv1.b14328ba4a775d78
-  clientSecret: 711f1eedd6104aec93d639f3f837d26569ff7467
-  repo: 'hexo-sorentryde-blog'
-  owner: 'Soren234'
-  admin: ['Soren234']
-  distractionFreeMode: false
-
 # Include / Exclude file(s)
 ## include:/exclude: options only apply to the 'source/' folder
 include:

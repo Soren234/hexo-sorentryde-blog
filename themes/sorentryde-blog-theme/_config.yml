@@ -15,8 +15,3 @@ highlight:
   auto_detect: false
   tab_replace: ''
   theme: 'github'
-
-reCaptcha:
-  enabled: true
-  siteKey: "6LcnQEwUAAAAAG4biRYcrrF0WboQEQcr19bkqNiJ"
-  secret: "zU7AI/J1j9Ap8JKHaF/sI5HA8lquRrN95GQ6o8IFx1c2U9YjLdffFa7nt3yVrYkBUXOpWhxxiA8AolT1kG5WyQB+bG30RxkgmmO7y4bitQ0NCag3vX4rGy8CDTgsQrbUCsOjANE8CYZ/BvGwtFZD7Okp8W3aNzmtGlVYnwHXckSdHafgMKzo4pIO9NDnapvwR/vSn8hSkZACd07cVuiYZeiZuo3i3UlTQCoeTNud7J+7u9VInAEzRHVlQtg/nxFE7eFi/kFWF5Inda3fOrYrSmuCUH6nu9d+oZ3t+fDwL5jGoBQ/En3IDkm08yxyfiSd9nJ0047IAtca8w22tQ9vcQ=="
