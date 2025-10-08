@@ -1,18 +1,57 @@
 - experience:
   role: Tech Lead
-  time: Oct 2016 - Present
-  company: If.dk (previously Topdanmark.dk)
-  details: "Various internal systems, which includes intranet solutions and app's for particular internal business needs.
-            Sharepoint Online, C#, Java, TypeScript, React, Azure DevOps, Azure Cloud, Wildfly, Scrum, and much more."
+  time: Jul 2025 - Present
+  company: If Insurance
+  details: 
+
 - experience:
-  role: Senior Software Developer
-  time: Oct 2016 - July 2019
-  company: Flowint.com
-  details: "A Lean optimized process system for mid to small companies.
-            I have been more or less working on this project since 2016, and we have had accepted over 20 interns since i started.
-            I also wrote my end thesis on this project. Java, AngularJS + other web technologies, Jenkins setup and hosting. Scrum as the agile used method."
+  role: Tech Lead
+  time: Apr 2022 - Jul 2025
+  company: Topdanmark
+  details: |+
+    Led technical teams and projects in Ballerup, Denmark (Hybrid).
+    - Built custom SharePoint solutions using C#, .NET, React, and SPFx in Azure Cloud.
+    - Integrated SharePoint, Teams, and Azure Cloud for future AI and Copilot adoption.
+    - Designed and implemented Azure cloud infrastructure and services.
+    - Led CI/CD pipeline transition in Azure DevOps.
+    - Developed governance and compliance tooling.
+    Achievements:
+    - Implemented Digital Employee Experience in Microsoft 365 for 2,000+ employees.
+    - Reduced IT vulnerabilities by 70%.
+    - Migrated 65% of on-premise servers to Azure.
+
+- experience:
+  role: Senior Software Engineer
+  time: Sep 2018 - Apr 2022
+  company: Topdanmark
+  details: |
+    Developed and maintained SharePoint and internal business applications.
+    - Used AngularJS, SPFx, C#, .NET, Java EE, Azure Cloud, PowerPlatform.
+    - Built Jenkins pipelines for efficient deployment.
+    Achievements:
+    - Implemented modern SharePoint intranet, retiring Lotus Notes.
+    - Developed FotoApp and Kramboden for business process improvements.
+
+- experience:
+  role: Software Engineer
+  time: Oct 2016 - Sep 2018
+  company: Topdanmark
+  details: |
+    Built on-prem Java EE solutions extending Lotus Notes intranet.
+    - Developed custom search experience using Java EE (JSP) and Ankiro search engine.
+
+- experience:
+  role: Software Engineer
+  time: Oct 2016 - Jul 2019
+  company: Flowint
+  details: |
+    Delivered tailored software solutions for clients, focusing on cloud-based and business-critical applications.
+    - AWS, Spring Boot, Java.
+
 - experience:
   role: Software Developer
   time: Jul 2013 - Aug 2013
   company: NSQ.dk
-  details: "Software Developer at a Squash sports club. Building the website, booking systems and more. Jquery, RequireJS, CSS and Html."
+  details: |
+    Contributed to development of reservation systems, door access systems, and business frontpage.
+    - Supported daily operations and customer interaction. (Java, Jquery, RequireJS, CSS, HTML)

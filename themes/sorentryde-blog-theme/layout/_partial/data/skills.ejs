@@ -1,0 +1,17 @@
+<% if(site.data.skills) { %>
+    <div class="education-container container-block">
+        <h2 class="container-block-title">Skills</h2>
+        <h4>
+            <div class="skills-tags">
+                <% site.data.skills.forEach(function(skill) { %>
+                    <span class="badge badge-dark" style="font-size: 1em; padding: 0.6em 1em; margin: 0.2em;">
+                        <% if (skill.icon) { %>
+                            <i class="<%= skill.icon %>" style="font-size:1.2em;vertical-align:middle;margin-right:0.3em;"></i>
+                        <% } %>
+                        <%= skill.name || skill %>
+                    </span>
+                <% }); %>
+            </div>
+        </h4>
+    </div>
+<% } %>
