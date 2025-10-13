@@ -2,7 +2,10 @@
   role: Tech Lead
   time: Jul 2025 - Present
   company: If Insurance
-  details: 
+  details: |
+    Converted Customer Universe solution from Classic SharePoint to Modern SharePoint.
+    - Technologies: SharePoint, SPFx, React, Azure Cloud, C#, .NET
+
 
 - experience:
   role: Tech Lead
